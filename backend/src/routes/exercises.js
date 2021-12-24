@@ -54,8 +54,11 @@ router.route('/:id')
 router.route('/update/:id')
 
     .post((req, res) => {
+        console.log(req.params.id);
+        console.log(req.body);
         Exercise.findById(req.params.id)
             .then(exercise => {
+                console.log(exercise);
             exercise.username = req.body.username;
             exercise.description = req.body.description;
             exercise.duration = Number(req.body.duration);
